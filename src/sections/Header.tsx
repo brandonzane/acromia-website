@@ -5,10 +5,13 @@ import MenuIcon from "../assets/menu.svg";
 
 export const Header = () => {
   return (
-    <header className="sticky top-0">
+    <header className="sticky top-0 backdrop-blur-sm">
       <div className="flex justify-center items-center py-3 bg-black text-white text-sm">
-        <div className="inlie-flex gap-1 items-center">
-          <p>Get Started for Free</p>
+        <p className="text-white/60 hidden md:block">
+          Streamline your workflow and boost your productivity
+        </p>
+        <div className="inline-flex gap-1 items-center">
+          <p> Get Started for Free</p>
           <ArrowRight className="w-4 h-4 inline-flex justify-center items-center" />
         </div>
       </div>
