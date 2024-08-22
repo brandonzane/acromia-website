@@ -4,6 +4,7 @@ import ArrowIcon from "@/assets/arrow-right.svg";
 import blackGloss from "@/assets/black-gloss.png";
 import laptopImage from "@/assets/laptop.png";
 import noodleImage from "@/assets/noodle.png";
+import fractalCube from "@/assets/fractal-cube.png";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,7 +14,7 @@ export const Hero = () => {
       <div className="container">
         <div className="md:flex items-center">
           <div className="md:w-[478px]">
-            <div className="text-sm inline-flex border border-[#222]/10 px-3 py-1 rounded-lg tracking-tight">
+            <div className="tag">
               <Link href={"/"}>Computer Help ver 1.0</Link>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#808080] text-transparent bg-clip-text mt-6">
@@ -44,10 +45,10 @@ export const Hero = () => {
               className="hidden md:block -top-8 -left-32 md:absolute"
             />
             <Image
-              src={noodleImage}
-              width={220}
-              height={220}
-              alt="Noodle Image"
+              src={fractalCube}
+              width={300}
+              height={300}
+              alt="Fractal Cube"
               className=" lg-block absolute top-[524px] left-[448px] rotate-[30deg]"
             />
           </div>
