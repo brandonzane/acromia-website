@@ -1,11 +1,11 @@
 import ArrowRight from "../assets/arrow-right.svg";
-import Logo from "../assets/logosaas.png";
+import acromiaLogo from "@/assets/acromia-logo.png";
 import Image from "next/image";
 import MenuIcon from "../assets/menu.svg";
 
 export const Header = () => {
   return (
-    <header className="sticky top-0 backdrop-blur-sm">
+    <header className="sticky top-0 backdrop-blur-sm z-20">
       <div className="flex justify-center items-center py-3 bg-black text-white text-sm">
         <p className="text-white/60 hidden md:block">
           Streamline your workflow and boost your productivity
@@ -18,7 +18,7 @@ export const Header = () => {
       <div className="py-5">
         <div className="container">
           <div className="flex items-center justify-between">
-            <Image src={Logo} alt="logo" height={40} width={40} />
+            <Image src={acromiaLogo} alt="logo" height={150} width={150} />
             <MenuIcon className="w-5 h-5 md:hidden" />
             <nav className="hidden md:flex gap-6 text-black/60 items-center">
               <a href="#">About</a>
@@ -27,7 +27,7 @@ export const Header = () => {
               <a href="#">Updates</a>
               <a href="#">Help</a>
               <button className="bg-black text-white px-4 py-2 rounded-lg font-medium inline-flex align-items justify-center tracking-tight">
-                Get for it free
+                Book a Call
               </button>
             </nav>
           </div>
