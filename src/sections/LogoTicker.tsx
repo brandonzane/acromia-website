@@ -1,20 +1,30 @@
-import acmeLogo from "@/assets/logo-acme.png";
+"use client";
+
+import gdiLogo from "@/assets/gdi-gray.png";
 import zimsoLogo from "@/assets/gray-zimso.png";
-import echoLogo from "@/assets/logo-echo.png";
-import celestialLogo from "@/assets/logo-celestial.png";
 import pulseLogo from "@/assets/logo-pulse.png";
 import apexLogo from "@/assets/logo-apex.png";
 import zusammenLogo from "@/assets/gray-zusammen.png";
 import dustyRoadLogo from "@/assets/gray-dusty-road.png";
 import planetLogo from "@/assets/gray-planet-inc.png";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export const LogoTicker = () => {
   return (
-    <div className="py-8 md:py-12 bg-white">
+    <section className="bg-white py-8 md:py-12">
       <div className="container">
         <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black,transparent)]">
-          <div className="flex gap-14 flex-none ">
+          <motion.div
+            animate={{ translateX: "-50%" }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear",
+              repeatType: "loop",
+            }}
+            className="flex flex-none gap-14 pr-14"
+          >
             <Image
               src={planetLogo}
               alt="Planet Inc Logo"
@@ -31,20 +41,13 @@ export const LogoTicker = () => {
               alt="Zusammen Logo"
               className="logo-ticker"
             />
+            <Image src={gdiLogo} alt="GDI Logo" className="logo-ticker" />
 
-            <Image src={acmeLogo} alt="Acme Logo" className="logo-ticker" />
-
-            <Image src={echoLogo} alt="Echo Logo" className="logo-ticker" />
-            <Image
-              src={celestialLogo}
-              alt="Celestial Logo"
-              className="logo-ticker"
-            />
             <Image src={pulseLogo} alt="Pulse Logo" className="logo-ticker" />
             <Image src={apexLogo} alt="Apex Logo" className="logo-ticker" />
-          </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

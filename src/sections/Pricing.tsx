@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 
 const pricingTiers = [
   {
-    title: "Free",
+    title: "Basic",
     Price: `$ ${400}`,
     buttonText: "Get started",
     popular: false,
@@ -17,7 +17,7 @@ const pricingTiers = [
     ],
   },
   {
-    title: "Pro",
+    title: "Professional",
     Price: `$ ${600}`,
     buttonText: "Sign up now",
     popular: true,
@@ -35,8 +35,8 @@ const pricingTiers = [
     ],
   },
   {
-    title: "Business",
-    // Price: "Contact Us",
+    title: "Enterprise",
+    Price: "Get in touch",
     buttonText: "Contact Us",
     popular: false,
     inverse: false,

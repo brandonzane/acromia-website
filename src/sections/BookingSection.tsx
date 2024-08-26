@@ -5,9 +5,12 @@ import { InlineWidget } from "react-calendly";
 
 export const BookingSection: React.FC = () => {
   return (
-    <section className="py-16 bg-gray-100">
+    <section className="py-16 bg-white">
       <div className="container mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-8">Book a Call Now</h2>
+        <div className="flex justify-center">
+          <div className="tag">Get In touch</div>
+        </div>
+        <h2 className="section-title">Book a Call Now</h2>
         <InlineWidget url="https://calendly.com/acromia/15min" />
       </div>
     </section>
