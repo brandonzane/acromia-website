@@ -1,5 +1,5 @@
 import acmeLogo from "@/assets/logo-acme.png";
-import quantumLogo from "@/assets/logo-quantum.png";
+import zimsoLogo from "@/assets/gray-zimso.png";
 import echoLogo from "@/assets/logo-echo.png";
 import celestialLogo from "@/assets/logo-celestial.png";
 import pulseLogo from "@/assets/logo-pulse.png";
@@ -15,12 +15,12 @@ export const LogoTicker = () => {
       <div className="container">
         <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black,transparent)]">
           <div className="flex gap-14 flex-none ">
-            <Image src={acmeLogo} alt="Acme Logo" className="logo-ticker" />
             <Image
-              src={quantumLogo}
-              alt="Quantum Logo"
+              src={planetLogo}
+              alt="Planet Inc Logo"
               className="logo-ticker"
             />
+            <Image src={zimsoLogo} alt="Zimso Logo" className="logo-ticker" />
             <Image
               src={dustyRoadLogo}
               alt="Dusty Road Logo"
@@ -31,11 +31,9 @@ export const LogoTicker = () => {
               alt="Zusammen Logo"
               className="logo-ticker"
             />
-            <Image
-              src={planetLogo}
-              alt="Planet Inc Logo"
-              className="logo-ticker"
-            />
+
+            <Image src={acmeLogo} alt="Acme Logo" className="logo-ticker" />
+
             <Image src={echoLogo} alt="Echo Logo" className="logo-ticker" />
             <Image
               src={celestialLogo}

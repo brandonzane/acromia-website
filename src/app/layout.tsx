@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+// import { DM_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { twMerge } from "tailwind-merge";
 
-const dmSans = DM_Sans({ subsets: ["latin"] });
+// const dmSans = DM_Sans({ subsets: ["latin"] });
+const halcomBold = localFont({ src: "../assets/fonts/Halcom-Bold.otf" });
 
 export const metadata: Metadata = {
   title: "Acromia | Design and Development Agency",
@@ -17,7 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="relative">
-      <body className={twMerge(dmSans.className, "antialiased bg-[#EAEEFE]")}>
+      <body
+        className={twMerge(halcomBold.className, "antialiased bg-[#EAEEFE]")}
+      >
         {children}
       </body>
     </html>
