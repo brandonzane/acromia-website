@@ -8,10 +8,10 @@ export const Header = () => {
     <header className="sticky top-0 backdrop-blur-sm z-20">
       <div className="flex justify-center items-center py-3 bg-black text-white text-sm">
         <p className="text-white/60 hidden md:block">
-          Streamline your workflow and boost your productivity
+          Streamline your marketing workflow{" "}
         </p>
         <div className="inline-flex gap-1 items-center">
-          <p> Get Started for Free</p>
+          <p> Get Started today</p>
           <ArrowRight className="w-4 h-4 inline-flex justify-center items-center" />
         </div>
       </div>
