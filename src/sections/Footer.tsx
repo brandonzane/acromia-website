@@ -1,3 +1,5 @@
+"use client";
+
 import acromiaLogo from "@/assets/acromia-logo.png";
 import Image from "next/image";
 import SocialX from "@/assets/social-x.svg";
@@ -5,8 +7,16 @@ import SocialInsta from "@/assets/social-insta.svg";
 import SocialLinkedIn from "@/assets/social-linkedin.svg";
 import SocialPin from "@/assets/social-pin.svg";
 import SocialYoutube from "@/assets/social-youtube.svg";
+import { useCallback } from "react";
 
 export const Footer = () => {
+  const scrollToSection = useCallback((elementId: string) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
   return (
     <footer className="bg-black py-10 text-center text-sm text-[#bcbcbc]">
       <div className="container">
@@ -19,11 +29,15 @@ export const Footer = () => {
           />
         </div>
         <nav className="mt-6 flex flex-col gap-6 md:flex-row md:justify-center">
-          <a href="#">About</a>
-          <a href="#">Features</a>
-          <a href="#">Customers</a>
-          <a href="#">Pricing</a>
-          <a href="#">Help</a>
+          <a onClick={() => scrollToSection("customers")} href="#customers">
+            Customers
+          </a>
+          <a onClick={() => scrollToSection("products")} href="#products">
+            Products
+          </a>
+          <a onClick={() => scrollToSection("pricing")} href="#pricing">
+            Pricing
+          </a>
         </nav>
         <div className="mt-6 flex justify-center gap-6">
           <SocialX />

@@ -1,9 +1,19 @@
+"use client";
+
 import ArrowRight from "@/assets/arrow-right.svg";
 import acromiaLogo from "@/assets/acromia-logo.png";
 import Image from "next/image";
 import MenuIcon from "@/assets/menu.svg";
+import { useCallback } from "react";
 
 export const Header = () => {
+  const scrollToSection = useCallback((elementId: string) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
   return (
     <header className="sticky top-0 z-20 backdrop-blur-sm">
       <div className="flex items-center justify-center gap-3 bg-black py-3 text-sm text-white">
@@ -21,18 +31,30 @@ export const Header = () => {
           <div className="flex items-center justify-between">
             <Image
               src={acromiaLogo}
-              height={200}
-              width={200}
+              height={160}
+              width={160}
               alt="Light SaaS Landing Page Logo"
             />
             <MenuIcon className="size-5 md:hidden" />
             <nav className="hidden items-center gap-6 text-black/60 md:flex">
-              <a href="#">About</a>
-              <a href="#">Features</a>
-              <a href="#">Customers</a>
-              <a href="#">Updates</a>
-              <a href="#">Help</a>
-              <button className="btn btn-primary">Book a call</button>
+              <a onClick={() => scrollToSection("customers")} href="#customers">
+                Customers
+              </a>
+              <a onClick={() => scrollToSection("products")} href="#products">
+                Products
+              </a>
+              <a onClick={() => scrollToSection("pricing")} href="#pricing">
+                Pricing
+              </a>
+              {/* <a href="#">Updates</a>
+              <a href="#">Help</a> */}
+              <a
+                onClick={() => scrollToSection("booking")}
+                href="#booking"
+                className="btn btn-primary"
+              >
+                Book a call
+              </a>
             </nav>
           </div>
         </div>

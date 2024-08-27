@@ -1,7 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import productImage from "@/assets/product-image.png";
 import atomImage from "@/assets/atom-shadow.png";
 import blockMatrix from "@/assets/blockMatrix.png";
+import { motion } from "framer-motion";
+import website1 from "@/assets/web-dev-1.png";
+import website2 from "@/assets/web-dev-2.png";
 
 export const ProductShowcase = () => {
   return (
@@ -21,8 +26,33 @@ export const ProductShowcase = () => {
             growth.
           </p>
         </div>
-        <div className="relative">
-          <Image src={productImage} alt="Product Image" className="mt-10" />
+        <div className="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black,transparent)]">
+          <motion.div
+            animate={{ translateX: "-50%" }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear",
+              repeatType: "loop",
+            }}
+            className="flex flex-none gap-14 pr-14"
+          >
+            <Image
+              src={productImage}
+              alt="Product Image"
+              className="mt-10 product-ticker"
+            />
+            <Image
+              src={website1}
+              alt="Product Image-1"
+              className="mt-10 product-ticker"
+            />
+            <Image
+              src={website2}
+              alt="Product Image-2"
+              className="mt-10 product-ticker"
+            />
+          </motion.div>
           <Image
             src={atomImage}
             alt="Atom Image"
@@ -37,10 +67,6 @@ export const ProductShowcase = () => {
             className="hidden md:block absolute bottom-24 -left-36"
           />
         </div>
-        <p className="text-center text-[22px] leading-[30px] tracking-tight text-[#2E1343]">
-          Custom built platforms and tools for analytics productivity and
-          payments.
-        </p>
       </div>
     </section>
   );

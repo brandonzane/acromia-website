@@ -10,12 +10,20 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Hero />
+      <section id="customers">
+        <Hero />
+      </section>
       <LogoTicker />
-      <ProductShowcase />
-      <Pricing />
-      <Testimonials />
-      <BookingSection />
+      <section id="products">
+        <ProductShowcase />
+      </section>
+      <section id="pricing">
+        <Pricing />
+      </section>
+      {/* <Testimonials /> */}
+      <section id="booking">
+        <BookingSection />
+      </section>
       <Footer />
     </>
   );
