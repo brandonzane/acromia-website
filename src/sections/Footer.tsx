@@ -39,13 +39,6 @@ export const Footer = () => {
             Pricing
           </a>
         </nav>
-        <div className="mt-6 flex justify-center gap-6">
-          <SocialX />
-          <SocialInsta />
-          <SocialLinkedIn />
-          <SocialPin />
-          <SocialYoutube />
-        </div>
         <p className="mt-6">&copy; 2024 Your Acromia. All rights reserved.</p>
       </div>
     </footer>
