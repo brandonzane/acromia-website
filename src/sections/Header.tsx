@@ -3,19 +3,35 @@
 import ArrowRight from "@/assets/arrow-right.svg";
 import acromiaLogo from "@/assets/acromia-logo.png";
 import Image from "next/image";
+import Link from "next/link";
 import MenuIcon from "@/assets/menu.svg";
 import { useCallback, useEffect, useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const scrollToSection = useCallback((elementId: string) => {
-    const element = document.getElementById(elementId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  const scrollToSection = useCallback(
+    (elementId: string) => {
+      if (pathname !== "/") {
+        router.push(`/#${elementId}`);
+      } else {
+        const element = document.getElementById(elementId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+      setMobileMenuOpen(false);
+    },
+    [pathname, router]
+  );
+
+  const handleLogoClick = useCallback(() => {
+    router.push("/");
     setMobileMenuOpen(false);
-  }, []);
+  }, [router]);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -45,12 +61,15 @@ export const Header = () => {
       <div className="py-5 relative">
         <div className="container">
           <div className="flex items-center justify-between">
-            <Image
-              src={acromiaLogo}
-              height={160}
-              width={160}
-              alt="Light SaaS Landing Page Logo"
-            />
+            <Link href="/" onClick={handleLogoClick}>
+              <Image
+                src={acromiaLogo}
+                height={160}
+                width={160}
+                alt="Acromia Logo"
+                className="cursor-pointer"
+              />
+            </Link>
             <MenuIcon
               className="size-5 md:hidden cursor-pointer"
               onClick={toggleMobileMenu}
@@ -66,7 +85,7 @@ export const Header = () => {
               transition-all duration-700 ease-in-out rounded-b-lg
               overflow-hidden absolute top-full left-0 right-0 md:relative md:top-auto
               bg-black/80 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none
-              flex flex-col md:flex-row items-center md:items-stretch gap-6 md:gap-6 text-white/80
+              flex flex-col md:flex-row items-center md:items-stretch gap-6 md:gap-6 text-slate-500
             `}
             >
               <a
@@ -83,6 +102,15 @@ export const Header = () => {
               >
                 Products
               </a>
+
+              <Link
+                href="/data-page"
+                className="py-2 md:py-0 hover:text-black transition-colors duration-200"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Data
+              </Link>
+
               <a
                 onClick={() => scrollToSection("pricing")}
                 href="#pricing"
@@ -90,10 +118,17 @@ export const Header = () => {
               >
                 Pricing
               </a>
+              <Link
+                href="/about"
+                className="py-2 md:py-0 hover:text-black transition-colors duration-200"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                About
+              </Link>
               <a
                 onClick={() => scrollToSection("booking")}
                 href="#booking"
-                className="btn btn-primary my-2 md:my-0"
+                className="btn btn-primary md:my-0 md:py-2 inline-flex items-center justify-center"
               >
                 Book a call
               </a>

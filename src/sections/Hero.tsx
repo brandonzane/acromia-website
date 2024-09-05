@@ -6,10 +6,17 @@ import laptopImage from "@/assets/laptop.png";
 import fractalCube from "@/assets/fractal-cube.png";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useCallback, useRef } from "react";
 
 export const Hero = () => {
   const heroRef = useRef(null);
+
+  const scrollToSection = useCallback((elementId: string) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -35,9 +42,20 @@ export const Hero = () => {
               Elevate your brand with Acromia Web design
             </p>
             <div className="flex gap-1 items-center mt-[30px]">
-              <button className="btn btn-primary">Book a Call</button>
+              <button
+                className="btn btn-primary"
+                onClick={() => scrollToSection("booking")}
+              >
+                Book a Call
+              </button>
               <button className="btn btn-text gap-1">
-                <span>Learn More</span>
+                <Link
+                  href="/about"
+                  className="py-2 md:py-0 hover:text-black transition-colors duration-200"
+                >
+                  <span>Learn More</span>
+                </Link>
+
                 <ArrowIcon className="h-5 w-5" />
               </button>
             </div>
