@@ -7,6 +7,8 @@ import blockMatrix from "@/assets/blockMatrix.png";
 import { motion } from "framer-motion";
 import website1 from "@/assets/web-dev-1.png";
 import website2 from "@/assets/web-dev-2.png";
+import website3 from "@/assets/data-1.png";
+import website4 from "@/assets/data-2.png";
 
 export const ProductShowcase = () => {
   return (
@@ -21,14 +23,14 @@ export const ProductShowcase = () => {
           <h2 className="section-title mt-5">Cutting-Edge Technology:</h2>
           <p className="section-description mt-5">
             {" "}
-            Our developers use the latest technologies and frameworks to ensure
-            your website performs optimally and scales effortlessly with your
-            growth.
+            Data is everything. We use the latest technologies to provide a more
+            informed decision-making framework. We build websites, dashboards
+            and visuals backed by data.
           </p>
         </div>
         <div className="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black,transparent)]">
           <motion.div
-            animate={{ translateX: "-50%" }}
+            animate={{ translateX: "-80%" }}
             transition={{
               duration: 20,
               repeat: Infinity,
@@ -52,13 +54,23 @@ export const ProductShowcase = () => {
               alt="Product Image-2"
               className="mt-10 product-ticker"
             />
+            <Image
+              src={website3}
+              alt="Product Image-2"
+              className="mt-10 product-ticker"
+            />
+            <Image
+              src={website4}
+              alt="Product Image-2"
+              className="mt-10 product-ticker"
+            />
           </motion.div>
           <Image
             src={atomImage}
             alt="Atom Image"
             height={262}
             width={262}
-            className="hidden md:block absolute -right-36 -top-32"
+            className="hidden md:block absolute -right-20 -top-28"
           />
           <Image
             src={blockMatrix}

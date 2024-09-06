@@ -12,6 +12,11 @@ import {
   ShieldCheckIcon,
   CubeTransparentIcon,
 } from "@heroicons/react/24/outline";
+import { useCallback } from "react";
+import { usePathname } from "next/navigation";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import { BookingSection } from "@/sections/BookingSection";
 
 const ServiceSection = ({
   title,
@@ -55,6 +60,13 @@ const ServiceSection = ({
   </motion.div>
 );
 export default function Data() {
+  const scrollToSection = useCallback((elementId: string) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
   const services = [
     {
       title: "Advanced Analytics",
@@ -77,7 +89,7 @@ export default function Data() {
       description:
         "Build robust, scalable data pipelines and infrastructure to handle your growing data needs. Our data engineering services ensure that your data is collected, processed, and stored efficiently, providing a solid foundation for all your data initiatives.",
       icon: CogIcon,
-      imageSrc: "/images/data-engineering.jpg",
+      imageSrc: "/data-5.jpg",
       imageAlt: "Data Engineering Architecture",
     },
     {
@@ -85,7 +97,7 @@ export default function Data() {
       description:
         "Harness the power of cloud computing for your data workloads. We design and implement cloud-native data solutions that offer scalability, flexibility, and cost-effectiveness, whether you're migrating existing systems or building new cloud-based data platforms.",
       icon: CloudIcon,
-      imageSrc: "/images/cloud-data.jpg",
+      imageSrc: "/data-7.jpg",
       imageAlt: "Cloud Data Platform",
     },
     {
@@ -93,7 +105,7 @@ export default function Data() {
       description:
         "Ensure the security, quality, and regulatory compliance of your data assets. Our data governance solutions help you implement best practices for data management, privacy protection, and compliance with regulations like GDPR, CCPA, and industry-specific standards.",
       icon: ShieldCheckIcon,
-      imageSrc: "/images/data-governance.jpg",
+      imageSrc: "/data-2.png",
       imageAlt: "Data Governance Framework",
     },
     {
@@ -101,7 +113,7 @@ export default function Data() {
       description:
         "Unlock the potential of artificial intelligence and machine learning for your business. From predictive modeling to natural language processing and computer vision, we develop custom AI solutions that automate processes, enhance decision-making, and drive innovation.",
       icon: CubeTransparentIcon,
-      imageSrc: "/images/ai-ml.jpg",
+      imageSrc: "/data-1.png",
       imageAlt: "AI and Machine Learning Visualization",
     },
   ];
@@ -157,9 +169,9 @@ export default function Data() {
               Let&apos;s discuss how our data solutions can drive your business
               forward.
             </p>
-            <a href="#booking" className="btn btn-primary text-lg px-8 py-3">
-              Book a Consultation
-            </a>
+            <section id="booking">
+              <BookingSection />
+            </section>
           </motion.div>
         </div>
       </main>

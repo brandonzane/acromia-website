@@ -32,15 +32,13 @@ export const Hero = () => {
       <div className="container">
         <div className="md:flex items-center">
           <div className="md:w-[478px]">
-            <div className="tag">
-              <Link href={"/"}>Computer Help ver 1.0</Link>
-            </div>
+            {/* <div className="tag">
+              <Link href={"/"}>Plans Zimbabwe Beta v0.5</Link>
+            </div> */}
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#808080] text-transparent bg-clip-text mt-6">
-              Elevate your brand with Acromia Design and Software
+              Elevate your business with Acromia Data and Software
             </h1>
-            <p className="text-xl text-[#0B0B0B] tracking-tight mt-6">
-              Elevate your brand with Acromia Web design
-            </p>
+            <p className="text-xl text-[#0B0B0B] tracking-tight mt-6"></p>
             <div className="flex gap-1 items-center mt-[30px]">
               <button
                 className="btn btn-primary"

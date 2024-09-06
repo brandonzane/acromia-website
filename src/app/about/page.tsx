@@ -3,7 +3,7 @@
 import { Header } from "@/sections/Header";
 import { Footer } from "@/sections/Footer";
 import Image from "next/image";
-import teamImage from "@/assets/team.png"; // You'll need to add this image to your assets
+import teamImage from "@/assets/acromia-team.jpg";
 import { motion } from "framer-motion";
 
 export default function About() {
@@ -14,7 +14,7 @@ export default function About() {
         <section className="py-20 md:py-32">
           <div className="container">
             <motion.h1
-              className="text-5xl md:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#808080] text-transparent bg-clip-text mb-8"
+              className="text-5xl md:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#808080] text-transparent bg-clip-text"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -44,11 +44,6 @@ export default function About() {
                   and robust development are not just services, but essential
                   components of a successful digital strategy.
                 </p>
-                <p className="text-xl text-[#0B0B0B] tracking-tight">
-                  Our team of passionate professionals is committed to pushing
-                  the boundaries of what&apos;s possible in web design and
-                  software development.
-                </p>
               </motion.div>
               <motion.div
                 className="md:w-1/2"
@@ -59,8 +54,8 @@ export default function About() {
                 <Image
                   src={teamImage}
                   alt="Acromia Team"
-                  width={600}
-                  height={400}
+                  width={300}
+                  height={200}
                   className="rounded-lg shadow-lg"
                 />
               </motion.div>
@@ -68,7 +63,7 @@ export default function About() {
           </div>
         </section>
 
-        <section className="py-20 bg-black text-white">
+        <section className="py-10 bg-black text-white">
           <div className="container">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-8">
               Our Values
