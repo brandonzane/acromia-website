@@ -85,14 +85,6 @@ export default function Data() {
       imageAlt: "Business Intelligence Dashboard",
     },
     {
-      title: "Data Engineering & Architecture",
-      description:
-        "Build robust, scalable data pipelines and infrastructure to handle your growing data needs. Our data engineering services ensure that your data is collected, processed, and stored efficiently, providing a solid foundation for all your data initiatives.",
-      icon: CogIcon,
-      imageSrc: "/data-5.jpg",
-      imageAlt: "Data Engineering Architecture",
-    },
-    {
       title: "Cloud Data Solutions",
       description:
         "Harness the power of cloud computing for your data workloads. We design and implement cloud-native data solutions that offer scalability, flexibility, and cost-effectiveness, whether you're migrating existing systems or building new cloud-based data platforms.",

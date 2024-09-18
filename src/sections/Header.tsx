@@ -83,29 +83,29 @@ export const Header = () => {
               }
               md:max-h-screen md:opacity-100
               transition-all duration-700 ease-in-out rounded-b-lg
-              overflow-hidden absolute top-full left-0 right-0 md:relative md:top-auto
-              bg-black/80 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none
-              flex flex-col md:flex-row items-center md:items-stretch gap-6 md:gap-6 text-slate-500
+              overflow-hidden absolute top-full left-0 right-0 md:relative md:top-auto text-white md:text-black
+              bg-black/80 md:bg-transparent md:backdrop-blur-none
+              flex flex-col md:flex-row items-center md:items-stretch gap-5 md:gap-6
             `}
             >
               <a
                 onClick={() => scrollToSection("customers")}
                 href="#customers"
-                className="py-2 md:py-0 hover:text-black transition-colors duration-200"
+                className="py-2 md:py-0 hover:text-black transition-colors duration-200 md:hover:text-slate-500"
               >
                 Customers
               </a>
               <a
                 onClick={() => scrollToSection("products")}
                 href="#products"
-                className="py-2 md:py-0 hover:text-black transition-colors duration-200"
+                className="py-2 md:py-0 hover:text-black transition-colors duration-200 md:hover:text-slate-500"
               >
                 Products
               </a>
 
               <Link
                 href="/data-page"
-                className="py-2 md:py-0 hover:text-black transition-colors duration-200"
+                className="py-2 md:py-0 hover:text-black transition-colors duration-200 md:hover:text-slate-500"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Data
@@ -114,13 +114,13 @@ export const Header = () => {
               <a
                 onClick={() => scrollToSection("pricing")}
                 href="#pricing"
-                className="py-2 md:py-0 hover:text-black transition-colors duration-200"
+                className="py-2 md:py-0 hover:text-black transition-colors duration-200 md:hover:text-slate-500"
               >
                 Pricing
               </a>
               <Link
                 href="/about"
-                className="py-2 md:py-0 hover:text-black transition-colors duration-200"
+                className="py-2 md:py-0 hover:text-black transition-colors duration-200 md:hover:text-slate-500"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 About
@@ -128,7 +128,7 @@ export const Header = () => {
               <a
                 onClick={() => scrollToSection("booking")}
                 href="#booking"
-                className="btn btn-primary md:my-0 md:py-2 inline-flex items-center justify-center"
+                className="btn btn-primary my-2 md:my-0 md:py-2 inline-flex items-center justify-center hover:bg-gray-700 transition-colors duration-200"
               >
                 Book a call
               </a>
