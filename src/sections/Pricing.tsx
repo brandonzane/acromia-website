@@ -1,4 +1,8 @@
+"use client";
+
 import CheckIcon from "@/assets/check.svg";
+import { usePathname, useRouter } from "next/navigation";
+import { useCallback, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 const pricingTiers = [
@@ -19,7 +23,7 @@ const pricingTiers = [
   {
     title: "Professional",
     Price: `$ ${600}`,
-    buttonText: "Sign up now",
+    buttonText: "Book a call",
     popular: true,
     inverse: true,
     features: [
@@ -59,6 +63,25 @@ const pricingTiers = [
 ];
 
 export const Pricing = () => {
+  const router = useRouter();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const scrollToSection = useCallback(
+    (elementId: string) => {
+      if (pathname !== "/") {
+        router.push(`/#${elementId}`);
+      } else {
+        const element = document.getElementById(elementId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+      setMobileMenuOpen(false);
+    },
+    [pathname, router]
+  );
+
   return (
     <section className="py-24 bg-white">
       <div className="container">
@@ -103,7 +126,10 @@ export const Pricing = () => {
                     /month
                   </span> */}
                 </div>
-                <button className={twMerge("btn btn-primary w-full mt-[30px]")}>
+                <button
+                  onClick={() => scrollToSection("booking")}
+                  className={twMerge("btn btn-primary w-full mt-[30px]")}
+                >
                   {buttonText}
                 </button>
                 <ul className="flex flex-col gap-5 mt-8">
