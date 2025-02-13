@@ -39,7 +39,7 @@ export const Footer = () => {
             Pricing
           </a>
         </nav>
-        <p className="mt-6">&copy; 2024 Your Acromia. All rights reserved.</p>
+        <p className="mt-6">&copy; {new Date().getFullYear()} Acromia. All rights reserved.</p>
       </div>
     </footer>
   );
