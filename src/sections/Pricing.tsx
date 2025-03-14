@@ -83,66 +83,81 @@ export const Pricing = () => {
   );
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-20 bg-gradient-to-b from-white to-primary-gray-100">
       <div className="container">
-        <div className="section-heading">
-          <h2 className="section-title">Pricing</h2>
-          <p className="section-description mt-5">
-            Pick any package that suits your needs. Scale when you need to.
+        <div className="section-heading mb-16">
+          <h2 className="section-title">Pricing Plans</h2>
+          <p className="section-description mt-4">
+            Choose the package that fits your needs
           </p>
         </div>
-        <div className="flex flex-col gap-6 items-center mt-10 lg:flex-row lg:items-end lg:justify-center">
-          {pricingTiers.map(
-            ({ title, Price, buttonText, popular, inverse, features }) => (
-              <div
-                key={title}
-                className={twMerge(
-                  "card",
-                  inverse === true && "border-black bg-black text-white"
-                )}
-              >
-                <div className="flex justify-between">
-                  <h3
-                    className={twMerge(
-                      "text-lg font-bold text-black/50",
-                      inverse === true && "text-white/60"
-                    )}
-                  >
-                    {title}
-                  </h3>
-                  {popular === true && (
-                    <div className="inline-flex text-sm px-4 py-1.5 rounded-xl border border-white/20">
-                      <span className="bg-[linear-gradient(to_right,#DD7DDF,#E1CD86,#BBCB92,#71C2EF,#DD7DDF)] text-transparent bg-clip-text font-medium">
-                        Popular
-                      </span>
-                    </div>
-                  )}
-                </div>
-                <div className="flex items-baseline gap-1 mt-[30px]">
-                  <span className="items-center text-4xl font-bold tracking-tighter leading-none">
-                    {Price}
-                  </span>
-                  {/* <span className="tracking-tight font-bold text-black/50">
-                    /month
-                  </span> */}
-                </div>
-                <button
-                  onClick={() => scrollToSection("booking")}
-                  className={twMerge("btn btn-primary w-full mt-[30px]")}
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {pricingTiers.map((plan) => (
+            <div
+              key={plan.title}
+              className={`
+                rounded-sm overflow-hidden p-8 
+                ${
+                  plan.popular
+                    ? "bg-primary-black text-white shadow-2xl border-2 border-primary-black"
+                    : "bg-white text-primary-black border border-primary-gray-200 shadow-lg"
+                }
+                hover:transform hover:-translate-y-2 transition-all duration-300
+              `}
+            >
+              <div className="text-center">
+                <h3
+                  className={`text-2xl font-bold mb-2 ${
+                    plan.popular ? "text-white" : "text-primary-black"
+                  }`}
                 >
-                  {buttonText}
-                </button>
-                <ul className="flex flex-col gap-5 mt-8">
-                  {features.map((feature, index) => (
-                    <li key={index} className="text-sm flex items-center gap-4">
-                      <CheckIcon className="h-6 w-6" />
-                      <span>{feature}</span>
+                  {plan.title}
+                </h3>
+                <div
+                  className={`text-4xl font-bold my-6 ${
+                    plan.popular ? "text-white" : "text-primary-black"
+                  }`}
+                >
+                  {plan.Price === "Get in touch" ? "Contact Us" : plan.Price}
+                </div>
+                <ul className="text-left space-y-4 mb-8">
+                  {plan.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start">
+                      <CheckIcon
+                        className={`h-5 w-5 mr-2 mt-1 ${
+                          plan.popular ? "text-white" : "text-primary-black"
+                        }`}
+                      />
+                      <span
+                        className={
+                          plan.popular
+                            ? "text-gray-200"
+                            : "text-primary-gray-600"
+                        }
+                      >
+                        {feature}
+                      </span>
                     </li>
                   ))}
                 </ul>
+                <button
+                  className={`
+                    w-full py-3 rounded-sm font-medium 
+                    ${
+                      plan.popular
+                        ? "bg-white text-primary-black hover:bg-primary-gray-100"
+                        : "bg-primary-black text-white hover:bg-gray-900"
+                    }
+                    transition-all duration-200
+                  `}
+                  onClick={() => scrollToSection(plan.title.toLowerCase())}
+                >
+                  {plan.buttonText}
+                </button>
               </div>
-            )
-          )}
+            </div>
+          ))}
         </div>
       </div>
     </section>

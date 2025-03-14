@@ -2,84 +2,96 @@
 
 import Image from "next/image";
 import productImage from "@/assets/product-image.png";
-import atomImage from "@/assets/atom-shadow.png";
-import blockMatrix from "@/assets/blockMatrix.png";
+import productImage2 from "@/assets/product-image-2.png";
 import { motion } from "framer-motion";
-import website1 from "@/assets/web-dev-1.png";
-import website2 from "@/assets/web-dev-2.png";
-import website3 from "@/assets/data-1.png";
-import website4 from "@/assets/data-2.png";
+import Link from "next/link";
+import ArrowIcon from "@/assets/arrow-right.svg";
 
 export const ProductShowcase = () => {
+  const products = [
+    {
+      id: 1,
+      title: "Company Dashboards",
+      description: "Customisable dashboards for your company",
+      image: productImage,
+      link: "/product1",
+    },
+    {
+      id: 2,
+      title: "Rent Zimbabwe",
+      description: "Android and iOS app for renting properties in Zimbabwe",
+      image: productImage2,
+      link: "/product2",
+    },
+    {
+      id: 3,
+      title: "Product 3",
+      description: "Description of Product 3",
+      image: productImage,
+      link: "/product3",
+    },
+  ];
+
   return (
-    <section className="bg-gradient-to-b from-[#FFFFFF] to-[#D2DCFF] py-24 overflow-x-clip">
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="py-20 bg-gradient-to-b from-white to-primary-gray-50"
+    >
       <div className="container">
-        <div className="section-heading">
-          <div className="flex justify-center">
-            <div className="tag">
-              Elevate Your Digital Presence with Acromia
-            </div>
-          </div>
-          <h2 className="section-title mt-5">Cutting-Edge Technology:</h2>
-          <p className="section-description mt-5">
-            {" "}
-            Data is everything. We use the latest technologies to provide a more
-            informed decision-making framework. We build websites, dashboards
-            and visuals backed by data.
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="section-heading mb-16"
+        >
+          <h2 className="section-title">Our Products</h2>
+          <p className="section-description mt-4">
+            Discover our advanced software solutions
           </p>
-        </div>
-        <div className="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black,transparent)]">
-          <motion.div
-            animate={{ translateX: "-80%" }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear",
-              repeatType: "loop",
-            }}
-            className="flex flex-none gap-14 pr-14"
-          >
-            <Image
-              src={productImage}
-              alt="Product Image"
-              className="mt-10 product-ticker"
-            />
-            <Image
-              src={website1}
-              alt="Product Image-1"
-              className="mt-10 product-ticker"
-            />
-            <Image
-              src={website2}
-              alt="Product Image-2"
-              className="mt-10 product-ticker"
-            />
-            <Image
-              src={website3}
-              alt="Product Image-2"
-              className="mt-10 product-ticker"
-            />
-            <Image
-              src={website4}
-              alt="Product Image-2"
-              className="mt-10 product-ticker"
-            />
-          </motion.div>
-          <Image
-            src={atomImage}
-            alt="Atom Image"
-            height={262}
-            width={262}
-            className="hidden md:block absolute -right-20 -top-28"
-          />
-          <Image
-            src={blockMatrix}
-            alt="Block Image"
-            height={248}
-            className="hidden md:block absolute bottom-24 -left-36"
-          />
+        </motion.div>
+
+        {/* Product cards with hover effects */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {products.map((product, index) => (
+            <motion.div
+              key={product.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-white rounded-sm overflow-hidden border border-primary-gray-200 hover:border-primary-black/40 transition-all duration-300 group shadow-sm hover:shadow-xl"
+            >
+              <div className="h-60 overflow-hidden relative bg-primary-gray-100">
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  layout="fill"
+                  objectFit="cover"
+                  className="group-hover:scale-105 transition-all duration-500"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-primary-black mb-2">
+                  {product.title}
+                </h3>
+                <p className="text-primary-gray-600 mb-4">
+                  {product.description}
+                </p>
+                <Link
+                  href={product.link}
+                  className="text-primary-black flex items-center hover:text-primary-gray-600 transition-colors"
+                >
+                  Learn more <ArrowIcon className="ml-2 h-4 w-4" />
+                </Link>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };

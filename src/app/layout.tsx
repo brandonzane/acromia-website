@@ -1,3 +1,4 @@
+import { ClientLayout } from "@/components/ClientLayout";
 import type { Metadata } from "next";
 // import { DM_Sans } from "next/font/google";
 import localFont from "next/font/local";
@@ -20,9 +21,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="relative">
       <body
-        className={twMerge(halcomBold.className, "antialiased bg-[#EAEEFE]")}
+        className={twMerge(
+          halcomBold.className,
+          "antialiased bg-white text-primary-black"
+        )}
       >
-        {children}
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

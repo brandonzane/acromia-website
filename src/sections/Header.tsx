@@ -7,26 +7,28 @@ import Link from "next/link";
 import MenuIcon from "@/assets/menu.svg";
 import { useCallback, useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
+import { animate } from "framer-motion";
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
 
-  const scrollToSection = useCallback(
-    (elementId: string) => {
-      if (pathname !== "/") {
-        router.push(`/#${elementId}`);
-      } else {
-        const element = document.getElementById(elementId);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      }
-      setMobileMenuOpen(false);
-    },
-    [pathname, router]
-  );
+  const scrollToSection = useCallback((elementId: string) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - 80; // 80px offset for header
+
+      animate(window.scrollY, offsetPosition, {
+        duration: 0.8,
+        ease: [0.32, 0.72, 0, 1], // Custom easing
+        onUpdate: (value) => {
+          window.scrollTo(0, value);
+        },
+      });
+    }
+  }, []);
 
   const handleLogoClick = useCallback(() => {
     router.push("/");
@@ -57,8 +59,8 @@ export const Header = () => {
   }, [closeMobileMenu]);
 
   return (
-    <header className="sticky top-0 z-20 backdrop-blur-sm">
-      <div className="py-5 relative">
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-primary-black/10">
+      <div className="py-4 relative">
         <div className="container">
           <div className="flex items-center justify-between">
             <Link href="/" onClick={handleLogoClick}>
@@ -67,46 +69,61 @@ export const Header = () => {
                 height={160}
                 width={160}
                 alt="Acromia Logo"
-                className="cursor-pointer"
+                className="cursor-pointer h-10 w-auto"
               />
             </Link>
-            <MenuIcon
-              className="size-5 md:hidden cursor-pointer"
-              onClick={toggleMobileMenu}
-            />
-            <nav
-              className={`
-              ${
-                mobileMenuOpen
-                  ? "max-h-screen opacity-100"
-                  : "max-h-0 opacity-0"
-              }
-              md:max-h-screen md:opacity-100
-              transition-all duration-700 ease-in-out rounded-b-lg
-              overflow-hidden absolute top-full left-0 right-0 md:relative md:top-auto text-white md:text-black
-              bg-black/80 md:bg-transparent md:backdrop-blur-none
-              flex flex-col md:flex-row items-center md:items-stretch gap-5 md:gap-6
-            `}
-            >
+
+            {/* Main Navigation */}
+            <nav className="flex items-center gap-8">
               <a
                 onClick={() => scrollToSection("customers")}
                 href="#customers"
-                className="py-2 md:py-0 hover:text-black transition-colors duration-200 md:hover:text-slate-500"
+                className="py-3 text-sm uppercase tracking-wide hover:text-primary-black transition-colors duration-200"
               >
                 Customers
               </a>
-              <a
-                onClick={() => scrollToSection("products")}
-                href="#products"
-                className="py-2 md:py-0 hover:text-black transition-colors duration-200 md:hover:text-slate-500"
-              >
-                Products
-              </a>
+
+              {/* Products Dropdown */}
+              <div className="relative group">
+                <button className="flex items-center gap-1 py-3 text-sm uppercase tracking-wide hover:text-primary-black transition-colors duration-200">
+                  Products
+                  <svg
+                    className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+
+                {/* Dropdown Menu */}
+                <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 absolute left-0 mt-0 w-56 bg-white shadow-lg rounded-sm border border-primary-gray-200 transition-all duration-200 z-50">
+                  <div className="py-1">
+                    <Link
+                      href="/products/rent-zimbabwe"
+                      className="block px-4 py-2 text-sm text-primary-gray-700 hover:bg-primary-gray-50 hover:text-primary-black transition-colors duration-200"
+                    >
+                      Rent Zimbabwe
+                    </Link>
+                    <Link
+                      href="/products/dashboards"
+                      className="block px-4 py-2 text-sm text-primary-gray-700 hover:bg-primary-gray-50 hover:text-primary-black transition-colors duration-200"
+                    >
+                      Customizable Dashboards
+                    </Link>
+                  </div>
+                </div>
+              </div>
 
               <Link
                 href="/data-page"
-                className="py-2 md:py-0 hover:text-black transition-colors duration-200 md:hover:text-slate-500"
-                onClick={() => setMobileMenuOpen(false)}
+                className="py-3 text-sm uppercase tracking-wide hover:text-primary-black transition-colors duration-200"
               >
                 Data
               </Link>
@@ -114,25 +131,31 @@ export const Header = () => {
               <a
                 onClick={() => scrollToSection("pricing")}
                 href="#pricing"
-                className="py-2 md:py-0 hover:text-black transition-colors duration-200 md:hover:text-slate-500"
+                className="py-3 text-sm uppercase tracking-wide hover:text-primary-black transition-colors duration-200"
               >
                 Pricing
               </a>
+
               <Link
                 href="/about"
-                className="py-2 md:py-0 hover:text-black transition-colors duration-200 md:hover:text-slate-500"
-                onClick={() => setMobileMenuOpen(false)}
+                className="py-3 text-sm uppercase tracking-wide hover:text-primary-black transition-colors duration-200"
               >
                 About
               </Link>
+
               <a
                 onClick={() => scrollToSection("booking")}
                 href="#booking"
-                className="btn btn-primary my-2 md:my-0 md:py-2 inline-flex items-center justify-center hover:bg-gray-700 transition-colors duration-200"
+                className="btn btn-primary text-sm uppercase tracking-wide"
               >
                 Book a call
               </a>
             </nav>
+
+            {/* Mobile Menu Button */}
+            <button className="md:hidden" onClick={toggleMobileMenu}>
+              <MenuIcon className="size-5 text-primary-black" />
+            </button>
           </div>
         </div>
       </div>
