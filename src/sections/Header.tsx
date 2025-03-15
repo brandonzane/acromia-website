@@ -73,8 +73,8 @@ export const Header = () => {
               />
             </Link>
 
-            {/* Main Navigation */}
-            <nav className="flex items-center gap-8">
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center gap-8">
               <a
                 onClick={() => scrollToSection("customers")}
                 href="#customers"
@@ -102,7 +102,6 @@ export const Header = () => {
                   </svg>
                 </button>
 
-                {/* Dropdown Menu */}
                 <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 absolute left-0 mt-0 w-56 bg-white shadow-lg rounded-sm border border-primary-gray-200 transition-all duration-200 z-50">
                   <div className="py-1">
                     <Link
@@ -153,9 +152,112 @@ export const Header = () => {
             </nav>
 
             {/* Mobile Menu Button */}
-            <button className="md:hidden" onClick={toggleMobileMenu}>
-              <MenuIcon className="size-5 text-primary-black" />
+            <button
+              className="md:hidden p-2"
+              onClick={toggleMobileMenu}
+              aria-label="Toggle menu"
+            >
+              <div className="relative w-6 h-5">
+                <span
+                  className={`absolute w-full h-0.5 bg-primary-black transition-all duration-300 ${
+                    mobileMenuOpen ? "top-2 rotate-45" : "top-0"
+                  }`}
+                />
+                <span
+                  className={`absolute w-full h-0.5 bg-primary-black transition-all duration-300 ${
+                    mobileMenuOpen ? "opacity-0" : "top-2"
+                  }`}
+                />
+                <span
+                  className={`absolute w-full h-0.5 bg-primary-black transition-all duration-300 ${
+                    mobileMenuOpen ? "top-2 -rotate-45" : "top-4"
+                  }`}
+                />
+              </div>
             </button>
+
+            {/* Mobile Navigation */}
+            <div
+              className={`
+              fixed left-0 right-0 top-[73px] bg-white border-b border-primary-gray-200
+              transition-all duration-300 md:hidden
+              ${mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"}
+            `}
+            >
+              <nav className="container py-6 flex flex-col gap-4">
+                <a
+                  onClick={() => {
+                    scrollToSection("customers");
+                    setMobileMenuOpen(false);
+                  }}
+                  href="#customers"
+                  className="py-2 text-sm uppercase tracking-wide hover:text-primary-black transition-colors duration-200"
+                >
+                  Customers
+                </a>
+
+                {/* Mobile Products Dropdown */}
+                <div className="flex flex-col gap-2">
+                  <span className="py-2 text-sm uppercase tracking-wide">
+                    Products
+                  </span>
+                  <div className="pl-4 flex flex-col gap-2">
+                    <Link
+                      href="/products/rent-zimbabwe"
+                      className="py-2 text-sm text-primary-gray-700 hover:text-primary-black transition-colors duration-200"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Rent Zimbabwe
+                    </Link>
+                    <Link
+                      href="/products/dashboards"
+                      className="py-2 text-sm text-primary-gray-700 hover:text-primary-black transition-colors duration-200"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Customizable Dashboards
+                    </Link>
+                  </div>
+                </div>
+
+                <Link
+                  href="/data-page"
+                  className="py-2 text-sm uppercase tracking-wide hover:text-primary-black transition-colors duration-200"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Data
+                </Link>
+
+                <a
+                  onClick={() => {
+                    scrollToSection("pricing");
+                    setMobileMenuOpen(false);
+                  }}
+                  href="#pricing"
+                  className="py-2 text-sm uppercase tracking-wide hover:text-primary-black transition-colors duration-200"
+                >
+                  Pricing
+                </a>
+
+                <Link
+                  href="/about"
+                  className="py-2 text-sm uppercase tracking-wide hover:text-primary-black transition-colors duration-200"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  About
+                </Link>
+
+                <a
+                  onClick={() => {
+                    scrollToSection("booking");
+                    setMobileMenuOpen(false);
+                  }}
+                  href="#booking"
+                  className="btn btn-primary text-sm uppercase tracking-wide inline-block text-center"
+                >
+                  Book a call
+                </a>
+              </nav>
+            </div>
           </div>
         </div>
       </div>

@@ -29,15 +29,15 @@ html {
 
 @layer components {
   .btn {
-    @apply px-6 py-3 rounded-sm font-medium inline-flex items-center justify-center tracking-tight transition-all duration-200;
+    @apply px-4 sm:px-6 py-3 rounded-sm font-medium inline-flex items-center justify-center tracking-tight transition-all duration-200 text-center;
   }
 
   .btn-primary {
-    @apply bg-primary-black text-white hover:bg-gray-900;
+    @apply bg-primary-black text-white hover:bg-gray-900 w-full sm:w-auto;
   }
 
   .btn-outlined {
-    @apply text-primary-black bg-transparent border border-primary-black/30 hover:bg-primary-black/10;
+    @apply text-primary-black bg-transparent border border-primary-black/30 hover:bg-primary-black/10 w-full sm:w-auto;
   }
 
   .btn-text {
@@ -57,15 +57,15 @@ html {
   }
 
   .section-title {
-    @apply text-center text-3xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter text-primary-black;
+    @apply text-center text-2xl sm:text-3xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter text-primary-black;
   }
 
   .section-description {
-    @apply text-center text-[22px] leading-[30px] tracking-tight text-primary-gray-600;
+    @apply text-center text-lg sm:text-xl md:text-[22px] leading-relaxed md:leading-[30px] tracking-tight text-primary-gray-600;
   }
 
   .section-heading {
-    @apply max-w-[700px] mx-auto;
+    @apply max-w-[700px] mx-auto px-4 sm:px-0;
   }
 
   .card {
@@ -73,6 +73,6 @@ html {
   }
 
   .container {
-    @apply px-4 md:px-8 lg:px-16 mx-auto max-w-[1400px];
+    @apply px-4 md:px-8 lg:px-16 mx-auto max-w-[1400px] w-full;
   }
 }

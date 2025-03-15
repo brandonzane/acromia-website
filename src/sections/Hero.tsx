@@ -34,41 +34,41 @@ export const Hero = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="pt-12 pb-32 md:pt-20 md:pb-48 bg-white relative overflow-hidden"
+      className="pt-12 pb-16 md:pt-20 md:pb-48 bg-white relative overflow-hidden"
     >
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.05),transparent_50%)]"></div>
 
-      {/* Diagonal line decoration */}
-      <div className="absolute -bottom-36 -right-36 w-96 h-96 border-t-2 border-l-2 border-primary-black/30 transform rotate-45"></div>
+      {/* Diagonal line decoration - hidden on mobile */}
+      <div className="hidden md:block absolute -bottom-36 -right-36 w-96 h-96 border-t-2 border-l-2 border-primary-black/30 transform rotate-45"></div>
 
       <div className="container relative z-10">
-        <div className="md:flex items-center">
-          <div className="md:w-[600px]">
+        <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-12">
+          <div className="w-full md:w-[600px]">
             <Link
               href="https://rentzimbabwe.com"
-              className="tag mb-5"
+              className="tag mb-5 text-sm md:text-base inline-block"
               target="_blank"
             >
               Rent Zimbabwe version 0.11.4
             </Link>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-primary-black mt-4 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter text-primary-black mt-4 leading-tight">
               Elevate your business with{" "}
               <span className="text-primary-black">Acromia</span> Websites and
               Software
             </h1>
-            <p className="text-xl text-primary-gray-600 mt-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-primary-gray-600 mt-6 md:mt-8 leading-relaxed">
               Powerful websites and web applications designed to transform your
               business.
             </p>
-            <div className="flex flex-wrap gap-4 items-center mt-10">
+            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center mt-8 md:mt-10">
               <button
-                className="btn btn-primary"
+                className="btn btn-primary w-full sm:w-auto"
                 onClick={() => scrollToSection("booking")}
               >
                 Book a Call
               </button>
-              <Link href="/about" className="btn btn-outlined">
+              <Link href="/about" className="btn btn-outlined w-full sm:w-auto">
                 Learn More <ArrowIcon className="h-5 w-5 ml-2" />
               </Link>
             </div>
