@@ -58,7 +58,7 @@ export const Footer = () => {
             </p>
             <div className="flex space-x-4">
               {/* Social media icons */}
-              {socialIcons.map((icon) => (
+              {/* {socialIcons.map((icon) => (
                 <a
                   key={icon.name}
                   href={icon.link}
@@ -66,7 +66,7 @@ export const Footer = () => {
                 >
                   <icon.icon className="h-5 w-5" />
                 </a>
-              ))}
+              ))} */}
             </div>
           </div>
 
@@ -88,7 +88,7 @@ export const Footer = () => {
             </ul>
           </div>
 
-          <div>
+          {/* <div>
             <h3 className="text-primary-black font-bold text-lg mb-6">
               Company
             </h3>
@@ -104,17 +104,15 @@ export const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           <div>
             <h3 className="text-primary-black font-bold text-lg mb-6">
               Contact Us
             </h3>
             <address className="not-italic text-primary-gray-600 space-y-4">
-              <p>123 Business Avenue</p>
-              <p>New York, NY 10001</p>
-              <p>Email: contact@acromia.com</p>
-              <p>Phone: +1 (555) 123-4567</p>
+              <p>Harare, Zimbabwe</p>
+              <p>Email: info@acromia.com</p>
             </address>
           </div>
         </div>

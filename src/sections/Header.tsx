@@ -120,6 +120,55 @@ export const Header = () => {
                 </div>
               </div>
 
+              {/* Services Dropdown */}
+              <div className="relative group">
+                <button className="flex items-center gap-1 py-3 text-sm uppercase tracking-wide hover:text-primary-black transition-colors duration-200">
+                  Services
+                  <svg
+                    className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+
+                <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 absolute left-0 mt-0 w-56 bg-white shadow-lg rounded-sm border border-primary-gray-200 transition-all duration-200 z-50">
+                  <div className="py-1">
+                    <Link
+                      href="/services/web-development"
+                      className="block px-4 py-2 text-sm text-primary-gray-700 hover:bg-primary-gray-50 hover:text-primary-black transition-colors duration-200"
+                    >
+                      Web Development
+                    </Link>
+                    <Link
+                      href="/services/data-analysis"
+                      className="block px-4 py-2 text-sm text-primary-gray-700 hover:bg-primary-gray-50 hover:text-primary-black transition-colors duration-200"
+                    >
+                      Data Analysis
+                    </Link>
+                    <Link
+                      href="/services/software"
+                      className="block px-4 py-2 text-sm text-primary-gray-700 hover:bg-primary-gray-50 hover:text-primary-black transition-colors duration-200"
+                    >
+                      Software Solutions
+                    </Link>
+                    <Link
+                      href="/services/consulting"
+                      className="block px-4 py-2 text-sm text-primary-gray-700 hover:bg-primary-gray-50 hover:text-primary-black transition-colors duration-200"
+                    >
+                      Consulting
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
               <Link
                 href="/data-page"
                 className="py-3 text-sm uppercase tracking-wide hover:text-primary-black transition-colors duration-200"
@@ -215,6 +264,43 @@ export const Header = () => {
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       Customizable Dashboards
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Mobile Services Dropdown */}
+                <div className="flex flex-col gap-2">
+                  <span className="py-2 text-sm uppercase tracking-wide">
+                    Services
+                  </span>
+                  <div className="pl-4 flex flex-col gap-2">
+                    <Link
+                      href="/services/web-development"
+                      className="py-2 text-sm text-primary-gray-700 hover:text-primary-black transition-colors duration-200"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Web Development
+                    </Link>
+                    <Link
+                      href="/services/data-analysis"
+                      className="py-2 text-sm text-primary-gray-700 hover:text-primary-black transition-colors duration-200"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Data Analysis
+                    </Link>
+                    <Link
+                      href="/services/software"
+                      className="py-2 text-sm text-primary-gray-700 hover:text-primary-black transition-colors duration-200"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Software Solutions
+                    </Link>
+                    <Link
+                      href="/services/consulting"
+                      className="py-2 text-sm text-primary-gray-700 hover:text-primary-black transition-colors duration-200"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Consulting
                     </Link>
                   </div>
                 </div>
