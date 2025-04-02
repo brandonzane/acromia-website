@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Header } from "@/sections/Header";
 import { Footer } from "@/sections/Footer";
-import webDevImage from "@/assets/product-image.png";
+import webDevImage from "@/assets/website-1.jpg";
 
 export default function WebDevelopmentPage() {
   return (

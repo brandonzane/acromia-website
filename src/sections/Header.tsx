@@ -76,7 +76,13 @@ export const Header = () => {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
               <a
-                onClick={() => scrollToSection("customers")}
+                onClick={() => {
+                  if (pathname !== "/") {
+                    router.push("/#customers");
+                  } else {
+                    scrollToSection("customers");
+                  }
+                }}
                 href="#customers"
                 className="py-3 text-sm uppercase tracking-wide hover:text-primary-black transition-colors duration-200"
               >
@@ -170,10 +176,10 @@ export const Header = () => {
               </div>
 
               <Link
-                href="/data-page"
+                href="/marketing"
                 className="py-3 text-sm uppercase tracking-wide hover:text-primary-black transition-colors duration-200"
               >
-                Data
+                Marketing
               </Link>
 
               <a
@@ -236,8 +242,11 @@ export const Header = () => {
               <nav className="container py-6 flex flex-col gap-4">
                 <a
                   onClick={() => {
-                    scrollToSection("customers");
-                    setMobileMenuOpen(false);
+                    if (pathname !== "/") {
+                      router.push("/#customers");
+                    } else {
+                      scrollToSection("customers");
+                    }
                   }}
                   href="#customers"
                   className="py-2 text-sm uppercase tracking-wide hover:text-primary-black transition-colors duration-200"
@@ -306,11 +315,11 @@ export const Header = () => {
                 </div>
 
                 <Link
-                  href="/data-page"
+                  href="/marketing"
                   className="py-2 text-sm uppercase tracking-wide hover:text-primary-black transition-colors duration-200"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Data
+                  Marketing
                 </Link>
 
                 <a

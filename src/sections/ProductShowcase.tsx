@@ -3,6 +3,7 @@
 import Image from "next/image";
 import productImage from "@/assets/product-image.png";
 import productImage2 from "@/assets/product-image-2.png";
+import websiteImage from "@/assets/website-1.jpg";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import ArrowIcon from "@/assets/arrow-right.svg";
@@ -25,9 +26,10 @@ export const ProductShowcase = () => {
     },
     {
       id: 3,
-      title: "Product 3",
-      description: "Description of Product 3",
-      image: productImage,
+      title: "Web Development",
+      description:
+        "Modern, responsive, and high-performance websites that help businesses grow their online presence",
+      image: websiteImage,
       link: "/product3",
     },
   ];
