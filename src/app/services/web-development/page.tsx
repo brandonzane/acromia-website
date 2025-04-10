@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Header } from "@/sections/Header";
 import { Footer } from "@/sections/Footer";
 import webDevImage from "@/assets/website-1.jpg";
+import "@/styles/glow-effects.css";
 
 export default function WebDevelopmentPage() {
   return (
@@ -16,7 +17,7 @@ export default function WebDevelopmentPage() {
         <motion.section
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="pt-12 pb-20 bg-white"
+          className="pt-12 pb-20 bg-white glow-section"
         >
           <div className="container">
             <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -29,15 +30,18 @@ export default function WebDevelopmentPage() {
                   that help businesses grow their online presence.
                 </p>
                 <div className="flex gap-4">
-                  <Link href="#contact" className="btn btn-primary">
+                  <Link href="#contact" className="btn btn-primary glow-border">
                     Get Started
                   </Link>
-                  <Link href="#services" className="btn btn-outlined">
+                  <Link
+                    href="#services"
+                    className="btn btn-outlined glow-border"
+                  >
                     Learn More
                   </Link>
                 </div>
               </div>
-              <div className="relative h-[400px]">
+              <div className="relative h-[400px] glow-card">
                 <Image
                   src={webDevImage}
                   alt="Web Development"
@@ -50,13 +54,16 @@ export default function WebDevelopmentPage() {
         </motion.section>
 
         {/* Services Section */}
-        <section id="services" className="py-20 bg-primary-gray-50">
+        <section
+          id="services"
+          className="py-20 bg-primary-gray-50 glow-section"
+        >
           <div className="container">
             <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
               Our Web Development Services
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white p-8 rounded-sm shadow-lg">
+              <div className="glow-card bg-white p-8 rounded-sm shadow-lg">
                 <h3 className="text-xl font-bold mb-4">
                   Custom Website Development
                 </h3>
@@ -65,14 +72,14 @@ export default function WebDevelopmentPage() {
                   practices to meet your specific business needs.
                 </p>
               </div>
-              <div className="bg-white p-8 rounded-sm shadow-lg">
+              <div className="glow-card bg-white p-8 rounded-sm shadow-lg">
                 <h3 className="text-xl font-bold mb-4">E-commerce Solutions</h3>
                 <p className="text-primary-gray-600">
                   Full-featured online stores with secure payment processing,
                   inventory management, and order tracking.
                 </p>
               </div>
-              <div className="bg-white p-8 rounded-sm shadow-lg">
+              <div className="glow-card bg-white p-8 rounded-sm shadow-lg">
                 <h3 className="text-xl font-bold mb-4">Web Applications</h3>
                 <p className="text-primary-gray-600">
                   Complex web applications that streamline your business
@@ -84,7 +91,7 @@ export default function WebDevelopmentPage() {
         </section>
 
         {/* Technologies Section */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-white glow-section">
           <div className="container">
             <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
               Technologies We Use
@@ -102,7 +109,7 @@ export default function WebDevelopmentPage() {
               ].map((tech) => (
                 <div
                   key={tech}
-                  className="text-center p-4 bg-primary-gray-50 rounded-sm"
+                  className="glow-card text-center p-4 bg-primary-gray-50 rounded-sm"
                 >
                   <h3 className="font-bold">{tech}</h3>
                 </div>
@@ -112,7 +119,7 @@ export default function WebDevelopmentPage() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 bg-primary-gray-50">
+        <section id="contact" className="py-20 bg-primary-gray-50 glow-section">
           <div className="container max-w-2xl mx-auto text-center">
             <h2 className="text-3xl md:text-5xl font-bold mb-8">
               Ready to Build Your Website?
@@ -121,7 +128,7 @@ export default function WebDevelopmentPage() {
               Let&apos;s discuss your project and create a custom solution that
               meets your needs.
             </p>
-            <Link href="/contact" className="btn btn-primary">
+            <Link href="/contact" className="btn btn-primary glow-border">
               Schedule Consultation
             </Link>
           </div>

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 // import { DM_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import "@/styles/glow-effects.css";
 import { twMerge } from "tailwind-merge";
 
 // const dmSans = DM_Sans({ subsets: ["latin"] });

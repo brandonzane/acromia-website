@@ -7,6 +7,7 @@ import websiteImage from "@/assets/website-1.jpg";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import ArrowIcon from "@/assets/arrow-right.svg";
+import "@/styles/glow-effects.css";
 
 export const ProductShowcase = () => {
   const products = [
@@ -52,11 +53,12 @@ export const ProductShowcase = () => {
         >
           <h2 className="section-title">Our Products</h2>
           <p className="section-description mt-4">
-            Discover our advanced software solutions
+            Discover our innovative solutions designed to transform your
+            business
           </p>
         </motion.div>
 
-        {/* Product cards with hover effects */}
+        {/* Product cards with glow effects */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product, index) => (
             <motion.div
@@ -65,29 +67,27 @@ export const ProductShowcase = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-sm overflow-hidden border border-primary-gray-200 hover:border-primary-black/40 transition-all duration-300 group shadow-sm hover:shadow-xl"
+              className="glow-card bg-white rounded-sm shadow-lg overflow-hidden"
             >
-              <div className="h-60 overflow-hidden relative bg-primary-gray-100">
+              <div className="relative h-48">
                 <Image
                   src={product.image}
                   alt={product.title}
-                  layout="fill"
-                  objectFit="cover"
-                  className="group-hover:scale-105 transition-all duration-500"
+                  fill
+                  className="object-cover"
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-primary-black mb-2">
-                  {product.title}
-                </h3>
+                <h3 className="text-xl font-bold mb-2">{product.title}</h3>
                 <p className="text-primary-gray-600 mb-4">
                   {product.description}
                 </p>
                 <Link
                   href={product.link}
-                  className="text-primary-black flex items-center hover:text-primary-gray-600 transition-colors"
+                  className="inline-flex items-center text-primary-black hover:text-primary-black/80 transition-colors"
                 >
-                  Learn more <ArrowIcon className="ml-2 h-4 w-4" />
+                  Learn More
+                  <ArrowIcon className="ml-2 w-4 h-4" />
                 </Link>
               </div>
             </motion.div>
